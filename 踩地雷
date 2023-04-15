@@ -6,13 +6,14 @@
 class Map //設遊戲範圍
 {
   public:
-
+    Map(int width,int height,int mine);
+    
 
 
   private:
     int  width; //寬度
     int  height; //高度
-    int  //地雷數量
+    int  mine//地雷數量
 };
 
 #endif
