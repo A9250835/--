@@ -2,13 +2,17 @@
 #ifndef Minesweeper_h //踩地雷標頭檔開始
 #define Minesweeper_h
 #include <iostream>
-class
+
+class Map //設遊戲範圍
 {
   public:
 
 
-  private:
 
+  private:
+    int  width; //寬度
+    int  height; //高度
+    int  //地雷數量
 };
 
 #endif
