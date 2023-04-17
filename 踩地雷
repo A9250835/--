@@ -6,10 +6,8 @@
 class Map //設遊戲範圍
 {
   public:
-    Map(int width,int height,int mine);
+    Map(int width,int height,int mine);//建構地圖
     
-
-
   private:
     int  width; //寬度
     int  height; //高度
