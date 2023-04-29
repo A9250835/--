@@ -1,4 +1,4 @@
-//踩地雷程式
+//踩地雷地圖
 #ifndef Minesweeper_h //踩地雷標頭檔開始
 #define Minesweeper_h
 #include <iostream>
