@@ -132,7 +132,11 @@ void Minefield::cencleFlagCell(int row, int col)
     Cell& cell = field[row][col];
 
     if (cell.isFlaggedCell())
+    {
         cell.takeFlag();
+        if (cell.hasMine())
+            minesRemaining++;
+    }
 
 }
 //印出地圖，以及剩餘炸彈數量
