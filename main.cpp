@@ -9,45 +9,7 @@
 
 int main() {
     GameMenu gameMenu;
-
-    cout << "踩地雷遊戲" << endl;
-    cout << "1. 初級" << endl;
-    cout << "2. 中級" << endl;
-    cout << "3. 高級" << endl;
-    cout << "4. 自訂" << endl;
-    cout << "請選擇遊戲等級：";
-
-    int choice;
-    cin >> choice;
-    
-    while(choice <=0 || choice >4)
-    {
-        cout << "無效的選擇，重新選擇。" << endl;
-        cin >> choice;
-        cout << "踩地雷遊戲" << endl;
-        cout << "1. 初級" << endl;
-        cout << "2. 中級" << endl;
-        cout << "3. 高級" << endl;
-        cout << "4. 自訂" << endl;
-        cout << "請選擇遊戲等級：";
-    }
-    
-    
-    switch (choice)
-    {
-        case 1:
-            gameMenu.setBeginnerLevel();
-            break;
-        case 2:
-            gameMenu.setIntermediateLevel();
-            break;
-        case 3:
-            gameMenu.setAdvancedLevel();
-            break;
-        case 4:
-            gameMenu.EnterRowColMines();
-            break;
-    }
+    gameMenu.gameInterface();
 
 
     int numRows = gameMenu.getNumRows();
@@ -63,8 +25,16 @@ int main() {
     {
         game.printField();
 
-        cout << "請輸入指令（1: 打開格子，2: 標示地雷，3: 取消標記):";
+        cout << "請輸入指令（1: 打開格子，2: 標示地雷，3: 取消標記，4: 重新開始):";
         cin >> command;
+        if (command == 4)
+        {
+            gameMenu.gameInterface();
+            int numRows = gameMenu.getNumRows();
+            int numCols = gameMenu.getNumCols();
+            int numMines = gameMenu.getNumMines();
+            Minefield game(numRows, numCols, numMines);
+        }
 
         cout << "請輸入座標（列 行）：";
         cin >> row >> col;
@@ -82,8 +52,6 @@ int main() {
             cout << "無效的指令！" << endl;
         }
     }
-    
-    game.printField();
     
     return 0;
 }
