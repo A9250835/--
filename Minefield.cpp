@@ -115,7 +115,7 @@ void Minefield::flagCell(int row, int col)
     if (cell.isCellOpened())
         cout << "該座標已經被打開！" << endl;
     
-    if (!cell.isFlaggedCell() && !cell.isCellOpened())//確認此格沒有插旗子和格子沒有被打開
+    if (!cell.isFlaggedCell())
     {
         cell.setFlag();
         if(field[row][col].hasMine())//如果插上去是炸彈，炸彈-1
@@ -193,6 +193,7 @@ void Minefield::checkWin(bool &index) {
     if (openedCount == rows * cols - totalMines)
     {
         cout << "恭喜你贏得了遊戲！" << endl;
+        printField();
         index = false;
     }
 }
