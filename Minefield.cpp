@@ -114,8 +114,8 @@ void Minefield::flagCell(int row, int col)
 
     if (cell.isCellOpened())
         cout << "該座標已經被打開！" << endl;
-
-    if (!cell.isFlaggedCell())
+    
+    if (!cell.isFlaggedCell() && !cell.isCellOpened())//確認此格沒有插旗子和格子沒有被打開
     {
         cell.setFlag();
         if(field[row][col].hasMine())//如果插上去是炸彈，炸彈-1
@@ -141,7 +141,7 @@ void Minefield::printField() {
     cout << "  ";
     for (int j = 0; j < cols; j++) {
         if (j < 9)
-            cout << "0" << j+1 << " ";
+            cout << " " << j+1 << " ";
         else
             cout << j+1 << " ";
     }
@@ -150,7 +150,7 @@ void Minefield::printField() {
     for (int i = 0; i < rows; i++)
     {
         if (i < 9)
-            cout << "0" << i+1 << " ";
+            cout << " " << i+1 << " ";
         else
             cout << i + 1 << " ";
 
@@ -172,8 +172,9 @@ void Minefield::printField() {
             }
             else if(cell.isFlaggedCell())
                 cout << "F  ";
+                    
             else
-                cout << ".  ";
+                cout << "?  ";
              
         }
         cout << endl;
@@ -202,3 +203,4 @@ void Minefield::gameOver(bool &index) {
     printField();
     index = false;
 }
+
