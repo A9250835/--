@@ -34,6 +34,9 @@ int main() {
             int numCols = gameMenu.getNumCols();
             int numMines = gameMenu.getNumMines();
             Minefield game(numRows, numCols, numMines);
+            game.printField();
+            cout << "請輸入指令（1: 打開格子，2: 標示地雷，3: 取消標記，4: 重新開始):";
+            cin >> command;
         }
 
         cout << "請輸入座標（列 行）：";
